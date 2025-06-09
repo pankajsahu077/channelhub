@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel - ChannelHub</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <!-- ✅ Header -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">🎬 ChannelHub</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="buy.html">Buy</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="admin.html">Admin</a></li>
+          <li><a href="scam.html">Scam Protection</a></li>
+          <li><a href="report.html" style="color: red; font-weight: bold;">🚨 Report Scam</a></li>
+        <li><a href="admin-scam.html">Scam Reports</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ✅ Admin Dashboard -->
+  <section class="admin-panel">
+    <div class="container">
+      <h2>🛠 Admin Approval Dashboard</h2>
+      <p>Admin can approve new channel listings before they go live.</p>
+
+      <div class="admin-table">
+        <div class="admin-row admin-head">
+          <span>Channel</span>
+          <span>Status</span>
+          <span>Action</span>
+        </div>
+
+        <!-- Dummy Listings -->
+        <div class="admin-row">
+          <span>🔥 Tech Explainer</span>
+          <span class="pending">Pending</span>
+          <button class="approve-btn">Approve</button>
+        </div>
+        <div class="admin-row">
+          <span>🎮 Gaming Arena</span>
+          <span class="approved">Approved</span>
+          <button class="approve-btn done" disabled>✓ Approved</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Scam Protection Info -->
+  <section class="scam-protect">
+    <div class="container">
+      <h2>🛡 Scam Protection & Safety</h2>
+      <ul>
+        <li>✔ Admin manually approves every listing before it goes live</li>
+        <li>✔ Screenshot + YouTube channel link verification</li>
+        <li>✔ Buyer/Seller identity checks (coming soon)</li>
+        <li>✔ Users can report suspicious channels</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ✅ Footer -->
+  <footer class="footer">
+    <p>© 2025 ChannelHub. All rights reserved.</p>
+  </footer>
+<script>
+  const table = document.querySelector(".admin-table");
+
+  const listings = JSON.parse(localStorage.getItem("channelListings")) || [];
+
+  listings.forEach((item, index) => {
+    const row = document.createElement("div");
+    row.className = "admin-row";
+
+    row.innerHTML = `
+      <span>${item.name}</span>
+      <span class="${item.status === 'approved' ? 'approved' : 'pending'}">
+        ${item.status}
+      </span>
+      <button class="approve-btn" ${item.status === 'approved' ? 'disabled' : ''}>
+        ${item.status === 'approved' ? '✓' : 'Approve'}
+      </button>
+    `;
+
+    // ✅ Approve button click
+    const btn = row.querySelector("button");
+    btn.addEventListener("click", () => {
+      listings[index].status = "approved";
+      localStorage.setItem("channelListings", JSON.stringify(listings));
+      location.reload(); // Refresh to reflect change
+    });
+
+    table.appendChild(row);
+  });
+</script>
+
+</body>
+</html>

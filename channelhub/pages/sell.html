@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sell YouTube Channel - ChannelHub</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <!-- ✅ Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">🎬 ChannelHub</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="buy.html">Buy</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="admin.html">Admin</a></li>
+          <li><a href="scam.html">Scam Protection</a></li>
+            <li><a href="report.html" style="color: red; font-weight: bold;">🚨 Report Scam</a></li>
+        <li><a href="admin-scam.html">Scam Reports</a></li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ✅ Seller Form -->
+  <section class="seller-section">
+    <div class="container">
+      <h2>📤 Sell Your YouTube Channel</h2>
+      <p>Submit your channel details to list it for sale. Admin will verify before approval.</p>
+
+      <form class="seller-form" id="sellForm">
+  <label>👤 Your Name:</label>
+  <input type="text" id="sellerName" placeholder="Enter your name" required />
+
+  <label>📧 Email Address:</label>
+  <input type="email" id="sellerEmail" placeholder="Enter your email" required />
+
+  <label>🔗 Channel Link:</label>
+  <input type="url" id="channelLink" placeholder="https://youtube.com/channel/..." required />
+
+  <label>📸 Screenshot (optional):</label>
+  <input type="file" id="screenshots" accept="image/*" />
+
+  <label>📊 Subscribers Count:</label>
+  <input type="number" id="subscribers" placeholder="e.g. 10000" required />
+
+  <label>📺 Channel Category:</label>
+  <select id="category" required>
+    <option value="">Select Category</option>
+    <option>Tech</option>
+    <option>Gaming</option>
+    <option>Vlogs</option>
+    <option>Education</option>
+    <option>Others</option>
+  </select>
+
+  <label>💰 Expected Price (INR):</label>
+  <input type="number" id="price" placeholder="e.g. 50000" required />
+
+  <label>📝 Extra Notes (optional):</label>
+  <textarea id="notes" rows="4" placeholder="Add info like monthly income, video count, etc."></textarea>
+
+  <button name="submit" type="submit" class="submit-btn">Submit Channel</button>
+</form>
+
+    </div>
+  </section>
+
+  <!-- ✅ Footer -->
+  <footer class="footer">
+    <p>© 2025 ChannelHub. All rights reserved.</p>
+  </footer>
+<script>
+  const form = document.getElementById('sellForm');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const newListing = {
+      name: document.getElementById('sellerName').value,
+      email: document.getElementById('sellerEmail').value,
+      link: document.getElementById('channelLink').value,
+      screenshot: document.getElementById('screenshots').value,
+      subscribers: document.getElementById('subscribers').value,
+      category: document.getElementById('category').value,
+      price: document.getElementById('price').value,
+      notes: document.getElementById('notes').value,
+      status: 'pending'
+    };
+
+    const listings = JSON.parse(localStorage.getItem('channelListings')) || [];
+    listings.push(newListing);
+    localStorage.setItem('channelListings', JSON.stringify(listings));
+
+    alert("Channel Submitted Successfully! ✅");
+    window.location.href = "thankyou.html";
+  });
+</script>
+
+    
+</body>
+</html>

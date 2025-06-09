@@ -1,0 +1,602 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #121212;
+  color: #fff;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #00c3ff;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(120deg, #0077ff, #00c3ff);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.btn {
+  background-color: #fff;
+  color: #0077ff;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: #00c3ff;
+  color: white;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #222;
+  color: #aaa;
+  margin-top: 40px;
+}
+/* Sell Channel Form */
+.form-section {
+  background-color: #fff;
+  padding: 60px 20px;
+}
+
+.channel-form {
+  max-width: 600px;
+  margin: auto;
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.channel-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.channel-form input,
+.channel-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.channel-form button {
+  background-color: #0077ff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.channel-form button:hover {
+  background-color: #00c3ff;
+}
+.seller-section {
+  padding: 50px 20px;
+  background-color: #fff4f4;
+}
+
+.seller-section h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.seller-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.seller-form input,
+.seller-form select,
+.seller-form textarea {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.seller-form label {
+  font-weight: bold;
+}
+
+.submit-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #1f7c33;
+}
+
+/* Channel Listing Page */
+.channel-listings {
+  padding: 60px 20px;
+  background: #f8f8f8;
+  text-align: center;
+}
+
+.channel-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.channel-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 280px;
+  padding: 20px;
+  transition: transform 0.3s;
+}
+
+.channel-card:hover {
+  transform: translateY(-5px);
+}
+
+.channel-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.channel-card h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.channel-card .status {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.status.available {
+  color: green;
+}
+
+.status.sold {
+  color: red;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sold-btn {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+/* Admin Panel Section */
+.admin-panel {
+  padding: 40px;
+  background-color: #f9f9f9;
+}
+
+.admin-table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.admin-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #ddd;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.admin-head {
+  background: #242424;
+  color: white;
+  font-weight: bold;
+}
+
+.pending {
+  color: orange;
+  font-weight: bold;
+}
+
+.approved {
+  color: green;
+  font-weight: bold;
+}
+
+.approve-btn {
+  padding: 8px 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.approve-btn.done {
+  background: green;
+  cursor: not-allowed;
+}
+
+/* Scam Protection Section */
+.scam-protect {
+  background-color: #f9f9f9;
+  padding: 50px 20px;
+}
+
+.scam-section {
+  padding: 50px 20px;
+  background-color: #fffef3;
+}
+.scam-section h2 {
+  color: #c0392b;
+  margin-bottom: 20px;
+}
+.scam-list {
+  list-style: none;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0;
+}
+.scam-list li {
+  background: #f7f7f7;
+  margin: 10px 0;
+  padding: 12px 20px;
+  border-left: 5px solid #27ae60;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.scam-protect ul {
+  margin-top: 20px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.scam-protect li {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+/* Contact Page */
+.contact-section {
+  background-color: #fefefe;
+  padding: 60px 20px;
+  text-align: center;
+}
+.contact-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+.contact-box {
+  background-color: #f4f4f4;
+  padding: 25px;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 500px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #25D366;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.upi-img {
+  margin: 15px 0;
+  width: 200px;
+  border: 2px solid #000;
+  border-radius: 6px;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  resize: none;
+}
+
+.contact-form button {
+  padding: 12px;
+  background-color: #2e7d32;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #1b5e20;
+}
+
+.or-divider {
+  margin: 25px 0;
+  font-size: 18px;
+  color: #666;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  padding: 14px 24px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebe5d;
+}
+
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .contact-grid {
+    flex-direction: column;
+  }
+
+  .admin-row {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+.buyer-section {
+  padding: 50px 20px;
+  background-color: #f4f8fb;
+}
+
+.channel-card {
+  background-color: #f4f4f4;
+  padding: 20px;
+  margin: 15px 0;
+  border-left: 5px solid #007bff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.channel-card h3 {
+  color: #333;
+}
+.channel-card a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.buyer-section h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.buyer-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.buyer-form input,
+.buyer-form select,
+.buyer-form textarea {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.buyer-form label {
+  font-weight: bold;
+}
+
+.submit-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+/*thankyou section */
+.thankyou {
+  background-color: #fef9f2;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.thankyou-box {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.thankyou h2 {
+  font-size: 32px;
+  color: #2e7d32;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.message p {
+  font-size: 16px;
+  color: #444;
+  margin: 10px 0;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #25D366;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1eb150;
+}
+
+.back-home {
+  display: block;
+  margin-top: 16px;
+  color: #333;
+  text-decoration: underline;
+  font-size: 14px;
+}
+/* Scam Section */
+.scam-info {
+  padding: 60px 20px;
+  background-color: #fff9ec;
+  text-align: center;
+}
+
+.scam-info h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.scam-info p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto 25px;
+}
+
+.scam-list {
+  list-style-type: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  text-align: left;
+}
+
+.scam-list li {
+  font-size: 17px;
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.scam-list li::before {
+  content: "🟢";
+  position: absolute;
+  left: 0;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scam Reports - ChannelHub Admin</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <!-- ✅ Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">🎬 ChannelHub Admin</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="admin.html">Admin</a></li>
+          <li><a href="admin-scam.html">Scam Reports</a></li>
+          <li><a href="report.html" style="color: red; font-weight: bold;">🚨 Report Scam</a></li>
+        <li><a href="admin-scam.html">Scam Reports</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ✅ Scam Report List -->
+  <section class="admin-panel">
+    <div class="container">
+      <h2>🛡 Scam Reports Dashboard</h2>
+      <p>View all reports submitted by users to take further action.</p>
+
+      <div id="scamReportsList" class="admin-table">
+        <!-- Dynamic scam reports will be inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Footer -->
+  <footer class="footer">
+    <p>© 2025 ChannelHub. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const reportContainer = document.getElementById('scamReportsList');
+    const reports = JSON.parse(localStorage.getItem('scamReports')) || [];
+
+    if (reports.length === 0) {
+      reportContainer.innerHTML = "<p>😎 No scam reports submitted yet.</p>";
+    } else {
+      reports.reverse().forEach((report, index) => {
+        const div = document.createElement('div');
+        div.classList.add('admin-row');
+        div.innerHTML = `
+          <span><strong>${index + 1}.</strong></span><br>
+          <span><strong>Link:</strong> <a href="${report.link}" target="_blank">${report.link}</a></span><br>
+          <span><strong>Email:</strong> ${report.email}</span><br>
+          <span><strong>Message:</strong> ${report.message}</span><br>
+          <span><strong>Date:</strong> ${report.date}</span>
+          <hr>
+        `;
+        reportContainer.appendChild(div);
+      });
+    }
+  </script>
+
+</body>
+</html>

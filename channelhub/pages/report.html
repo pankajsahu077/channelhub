@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Report Scam - ChannelHub</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <!-- ✅ Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">🎬 ChannelHub</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="buy.html">Buy</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="admin.html">Admin</a></li>
+          <li><a href="scam.html">Scam Protection</a></li>
+          <li><a href="report.html">Report Scam</a></li>
+          <li><a href="report.html" style="color: red; font-weight: bold;">🚨 Report Scam</a></li>
+        <li><a href="admin-scam.html">Scam Reports</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ✅ Report Scam Form -->
+  <section class="report-section">
+    <div class="container">
+      <h2>🚨 Report a Scam</h2>
+      <p>If you think a listing is suspicious or fraudulent, report it below. Our team will take quick action.</p>
+
+      <form id="reportForm" class="seller-form">
+        <label>🔗 Channel Link:</label>
+        <input type="url" id="reportLink" placeholder="Paste suspicious channel link" required>
+
+        <label>📧 Your Email:</label>
+        <input type="email" id="reporterEmail" placeholder="Enter your email" required>
+
+        <label>📝 Describe the issue:</label>
+        <textarea id="reportMessage" rows="5" placeholder="Write the scam details here..." required></textarea>
+
+        <button type="submit" class="submit-btn">Submit Report</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ✅ Footer -->
+  <footer class="footer">
+    <p>© 2025 ChannelHub. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const reportForm = document.getElementById('reportForm');
+
+    reportForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const report = {
+        link: document.getElementById('reportLink').value,
+        email: document.getElementById('reporterEmail').value,
+        message: document.getElementById('reportMessage').value,
+        date: new Date().toLocaleString()
+      };
+
+      let reports = JSON.parse(localStorage.getItem('scamReports')) || [];
+      reports.push(report);
+      localStorage.setItem('scamReports', JSON.stringify(reports));
+
+      alert("✅ Report submitted successfully. Our team will review it shortly.");
+      reportForm.reset();
+    });
+  </script>
+
+</body>
+</html>

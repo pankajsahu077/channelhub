@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buy Channels - ChannelHub</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <!-- ✅ Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">🎬 ChannelHub</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="buy.html">Buy</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="admin.html">Admin</a></li>
+          <li><a href="scam.html">Scam Protection</a></li>
+          <li><a href="report.html" style="color: red; font-weight: bold;">🚨 Report Scam</a></li>
+        <li><a href="admin-scam.html">Scam Reports</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ✅ Buy Section -->
+  <section class="buy-section">
+    <div class="container">
+      <h2>🛒 Buy Verified YouTube Channels</h2>
+      <p>Explore approved channels listed for sale. Safe & Scam-Free!</p>
+
+      <div id="channelList" class="channel-list">
+        <!-- Channels will be inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 ChannelHub. All rights reserved.</p>
+  </footer>
+
+  <!-- ✅ JS to load approved channels -->
+  <script>
+    const listContainer = document.getElementById("channelList");
+    const listings = JSON.parse(localStorage.getItem("channelListings")) || [];
+
+    const approved = listings.filter(item => item.status === "approved");
+
+    if (approved.length === 0) {
+      listContainer.innerHTML = "<p>No channels available right now. Please check again later!</p>";
+    } else {
+      approved.forEach((item) => {
+        const box = document.createElement("div");
+        box.className = "channel-card";
+        box.innerHTML = `
+          <h3>${item.name}</h3>
+          <p>🔗 <a href="${item.link}" target="_blank">Visit Channel</a></p>
+          <p>📸 Screenshot: ${item.screenshots ? item.screenshots : 'Not Provided'}</p>
+          <p>📊 Subscribers: ${item.subscribers || 'N/A'}</p>
+          <p>💰 Price: ₹${item.price || 'Not Mentioned'}</p>
+        `;
+        listContainer.appendChild(box);
+      });
+    }
+  </script>
+</body>
+</html>
